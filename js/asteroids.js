@@ -189,10 +189,11 @@ var Asteroids = (function () {
   Game.prototype.shipIsHit = function() {
     var ship_pos = [this.ship.x, this.ship.y];
     for (var i = 0, n = this.asteroids.length; i < n; i++) {
-      var asteroid = this.asteroids[i];
-      var asteroid_pos = [asteroid.x, asteroid.y];
-      var dx = ship_pos[0] - asteroid_pos[0];
-      var dy = ship_pos[1] - asteroid_pos[1];
+      var asteroid = this.asteroids[i],
+          asteroid_pos = [asteroid.x, asteroid.y],
+          dx = ship_pos[0] - asteroid_pos[0],
+          dy = ship_pos[1] - asteroid_pos[1];
+
       if (Math.pow((Math.pow(dx, 2) + Math.pow(dy, 2)), 0.5) < (asteroid.radius + this.ship.radius)) {
         this.gameover = true;
         return true;
@@ -203,11 +204,12 @@ var Asteroids = (function () {
 
   Game.prototype.asteroidIsHit = function(asteroid) {
     for (var i = 0; i < this.bullets.length; i++) {
-      var bullet = this.bullets[i];
-      var bullet_x = bullet.x;
-      var bullet_y = bullet.y;
-      var dx = asteroid.x - bullet_x;
-      var dy = asteroid.y - bullet_y;
+      var bullet = this.bullets[i],
+          bullet_x = bullet.x,
+          bullet_y = bullet.y,
+          dx = asteroid.x - bullet_x,
+          dy = asteroid.y - bullet_y;
+
       if (Math.pow((Math.pow(dx, 2) + Math.pow(dy, 2)), 0.5) < (asteroid.radius + bullet.radius)) {
         this.bullets.splice(i, 1);
         // console.log("Asteroid obliterated!");
@@ -218,13 +220,15 @@ var Asteroids = (function () {
   }
 
   Game.prototype.randomAsteroid = function () {
-    var x = this.generateCoord();
-    var y = this.generateCoord();
+    var x = this.generateCoord(),
+        y = this.generateCoord();
+
     return new Asteroid(x, y);
   };
 
   Game.prototype.generateCoord = function() {
     var coord = Math.random() * 600 - 50;
+
     while (coord > -25 && coord < 525) {
       coord = Math.random() * 600 - 50;
     }
@@ -232,8 +236,9 @@ var Asteroids = (function () {
   }
 
   Game.prototype.wrapShip = function() {
-    var x = this.ship.x;
-    var y = this.ship.y;
+    var x = this.ship.x,
+        y = this.ship.y;
+
     if (x < 0) {
       this.ship.x = 500;
     }
@@ -262,8 +267,8 @@ var Asteroids = (function () {
       if (this.asteroidIsHit(asteroid)) {
         // console.log("Asteroid hit");
         if (asteroid.radius >= 19) {
-          var asteroid1 = new Asteroid(asteroid.x, asteroid.y);
-          var asteroid2 = new Asteroid(asteroid.x, asteroid.y);
+          var asteroid1 = new Asteroid(asteroid.x, asteroid.y),
+              asteroid2 = new Asteroid(asteroid.x, asteroid.y);
 
           asteroid1.radius = asteroid.radius - 10;
           asteroid2.radius = asteroid.radius - 10;
