@@ -1,11 +1,11 @@
 $(function () {
-	var canvas = $('<canvas width="500" height="500"></canvas>');
-	$('#asteroids_game').append(canvas);
+  var canvas = $('<canvas width="500" height="500"></canvas>');
+  $('#asteroids_game').append(canvas);
 
-	var ctx = canvas.get(0).getContext('2d');
+  var ctx = canvas.get(0).getContext('2d');
 
-	var game = new Asteroids.Game(ctx);
-	game.start();
+  var game = new Asteroids.Game(ctx);
+  game.start();
 
 });
 
