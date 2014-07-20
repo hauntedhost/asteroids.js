@@ -6,7 +6,7 @@ Demo
 Live demo hosted here:
 [**LIVE DEMO**](http://seanomlor.com/demo/asteroids)
 
-[![Screenshot](/images/screenshot.png)](http://seanomlor.com/demo/asteroids)
+[![Screenshot](https://raw.githubusercontent.com/somlor/asteroids.js/master/images/screenshot.png)](http://seanomlor.com/demo/asteroids)
 
 Summary
 -------
